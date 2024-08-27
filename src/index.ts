@@ -62,7 +62,6 @@ client.addEventHandler(
           )}: ${address}`
         );
 
-        // @ts-ignore
         if (db.data.scanned.indexOf(lcAddress) > -1) {
           client.logger.info(`${address} is a duplicate! Ignoring...`);
         } else {
