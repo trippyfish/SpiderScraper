@@ -1,0 +1,22 @@
+{
+  "name": "tg-autobuy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx tsx ./src/index.ts",
+    "build": "npx tsc"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^5.3.8",
+    "dotenv": "^16.4.5",
+    "lowdb": "^7.0.1",
+    "telegram": "^2.24.11",
+    "tsx": "^4.18.0",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4"
+  }
+}
