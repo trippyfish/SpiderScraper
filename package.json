@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "npx tsx ./src/index.ts",
-    "build": "npx tsc"
+    "build": "rm -rf ./dist/* && npx tsc"
   },
   "dependencies": {
     "@inquirer/prompts": "^5.3.8",
