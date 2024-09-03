@@ -1,11 +1,18 @@
 import "dotenv/config";
 
+import path from "path";
+import sound from "sound-play";
 import { NewMessage } from "telegram/events/NewMessage.js";
 import { Api } from "telegram/index.js";
 import { getDisplayName } from "telegram/Utils.js";
+import { fileURLToPath } from "url";
 
 import client from "./utils/client.js";
 import db from "./utils/db.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const alertPath = path.join(__dirname, "alert.wav");
 
 // load db into memory
 await db.read();
@@ -65,6 +72,7 @@ client.addEventHandler(
         if (db.data.scanned.indexOf(lcAddress) > -1) {
           client.logger.info(`${address} is a duplicate! Ignoring...`);
         } else {
+          sound.play(alertPath);
           db.data.scanned.push(lcAddress);
           client.logger.info(`Sending ${address} to sniper...`);
           // send ca to target
@@ -85,3 +93,6 @@ client.addEventHandler(
       .map((chat) => (/^-?\d+$/.test(chat) ? parseInt(chat) : chat)),
   })
 );
+
+// signal sound on start
+sound.play(alertPath);

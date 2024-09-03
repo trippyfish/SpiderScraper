@@ -10,13 +10,14 @@
   },
   "dependencies": {
     "@inquirer/prompts": "^5.3.8",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^22.5.2",
+    "@types/sound-play": "^1.1.3",
     "dotenv": "^16.4.5",
     "lowdb": "^7.0.1",
+    "sound-play": "^1.1.0",
     "telegram": "^2.24.11",
     "tsx": "^4.18.0",
     "typescript": "^5.5.4"
-  },
-  "devDependencies": {
-    "@tsconfig/node20": "^20.1.4"
   }
 }
