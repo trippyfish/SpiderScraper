@@ -19,9 +19,9 @@ await db.read();
 
 // solana, trx, evm
 const regexRegistry = {
-  solana: /[1-9A-HJ-NP-Za-z]{32,44}/, // lowercase l is only included as dex links are lowercased
-  tron: /T[A-Za-z1-9]{33}/,
   evm: /0x[a-fA-F0-9]{40}/,
+  tron: /T[A-Za-z1-9]{33}/,
+  solana: /[1-9A-HJ-NP-Za-z]{32,44}/, // lowercase l is only included as dex links are lowercased
 };
 
 // parse target chat
