@@ -41,6 +41,14 @@ client.addEventHandler(
       ?.filter((entity) => entity instanceof Api.MessageEntityTextUrl)
       .map((entity) => entity.url);
 
+    if (process.env.ONLY_USERNAME) {
+      if (text.match(new RegExp(process.env.ONLY_USERNAME, "i")) === null) {
+        return;
+      }
+
+      client.logger.info(`${process.env.ONLY_USERNAME} match found`);
+    }
+
     const matchers = Object.entries(regexRegistry);
 
     for (let i = 0; i < matchers.length; i++) {

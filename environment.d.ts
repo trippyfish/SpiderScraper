@@ -7,6 +7,7 @@ declare global {
       API_HASH: string;
       TARGET_CHAT: string;
       TRACKED_CHATS: string;
+      ONLY_USERNAME: string;
     }
   }
 }
