@@ -8,6 +8,7 @@ declare global {
       TARGET_CHAT: string;
       TRACKED_CHATS: string;
       ONLY_USERNAME: string;
+      ENABLE_SOUND: number;
     }
   }
 }

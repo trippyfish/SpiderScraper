@@ -14,6 +14,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const alertPath = path.join(__dirname, "alert.wav");
 
+const enableSound = Number(process.env.ENABLE_SOUND) === 1;
+
 // load db into memory
 await db.read();
 
@@ -80,7 +82,7 @@ client.addEventHandler(
         if (db.data.scanned.indexOf(lcAddress) > -1) {
           client.logger.info(`${address} is a duplicate! Ignoring...`);
         } else {
-          sound.play(alertPath);
+          enableSound && sound.play(alertPath);
           db.data.scanned.push(lcAddress);
           client.logger.info(`Sending ${address} to sniper...`);
           // send ca to target
@@ -103,4 +105,4 @@ client.addEventHandler(
 );
 
 // signal sound on start
-sound.play(alertPath);
+enableSound && sound.play(alertPath);
